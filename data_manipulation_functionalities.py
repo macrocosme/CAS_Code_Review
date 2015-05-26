@@ -23,13 +23,13 @@ def list_files_in_current_path(path):
     """ Returns files in the current folder only """
     return [ f for f in listdir(path) if isfile(join(path,f)) ]
 
-def find_replace(filename, textToSearch,textToReplace):
-    """ finds textToSearch in filename and replaces it with textToReplace """
+def find_replace(fname, text_to_search, text_to_replace):
+    """ finds text_to_search in filename and replaces it with text_to_replace within the file fname """
     i = 0
-    for line in fileinput.input(filename, inplace=True):
-        sys.stdout.write(line.replace(textToSearch, textToReplace))
+    for line in fileinput.input(fname, inplace=True):
+        sys.stdout.write(line.replace(text_to_search, text_to_replace))
 
-def flip_CSV(file):
+def flip_CSV(fname):
     """ flips a CSV file within itself (similar to a transpose) """
-    a = izip(*csv.reader(open(file, "rb")))
-    csv.writer(open(file, "wb")).writerows(a)
+    a = izip(*csv.reader(open(fname, "rb")))
+    csv.writer(open(fname, "wb")).writerows(a)
