@@ -11,13 +11,15 @@ import numpy as np
 
 '''
 Simple handy functionalities to manipulate and deal with data
-from your python code. 
+from your python code.
+
+author: Dany Vohl, 2016.
 '''
 
-def list_files_with_paths_recursively(mypath):
-    """ Recursively list files in mypath and returns the list in the form of ['path/to/file/myfile.extension', '...'] """
+def list_files_with_paths_recursively(my_path):
+    """ Recursively list files in my_path and returns the list in the form of ['path/to/file/myfile.extension', '...'] """
     my_files = []
-    for (dirpath, dirnames, filenames) in walk(mypath):
+    for (dirpath, dirnames, filenames) in walk(my_path):
         if dirpath[-1] != '/':
             for f in filenames:
                 my_files.append(dirpath + '/' + f)
@@ -27,11 +29,11 @@ def list_files_in_current_path(path):
     """ Returns files in the current folder only """
     return [ f for f in listdir(path) if isfile(join(path,f)) ]
 
-def find_replace(filename, textToSearch,textToReplace):
-    """ finds textToSearch in filename and replaces it with textToReplace """
+def find_replace(filename, text_to_search,text_to_replace):
+    """ finds text_to_search in filename and replaces it with text_to_replace """
     i = 0
     for line in fileinput.input(filename, inplace=True):
-        sys.stdout.write(line.replace(textToSearch, textToReplace))
+        sys.stdout.write(line.replace(text_to_search, text_to_replace))
 
 def flip_CSV(file):
     """ flips a CSV file within itself (similar to a transpose) """
@@ -45,7 +47,7 @@ def create_cube_from_files_in_current_folder(out_fname):
     :param out_fname: output filename (should be .fits)
     :return: nothing.
     """
-    #TODO add assert for fits extension; check that all files are in folder are fits... etc.
+    #TODO add assert for fits extension; check that all files are in folder are fits; image alignment; etc.
     files = list_files_in_current_path('.')
     image = fits.open(files[0])
     cube = np.ndarray(shape=(len(files), image[0].data.shape[0], image[0].data.shape[1]), dtype=float)
