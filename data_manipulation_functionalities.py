@@ -47,14 +47,18 @@ def create_cube_from_files_in_current_folder(out_fname):
     :param out_fname: output filename (should be .fits)
     :return: nothing.
     """
-    #TODO add assert for fits extension; check that all files are in folder are fits; image alignment; etc.
+
+    #TODO: check that all files are in folder are fits; file ordering; image alignment; etc.
+
+    assert ".fits" in out_fname, 'out_fname needs to contain ".fits"\n' \
+                                 'Usage example: create_cube_from_files_in_current_folder("filename.fits")'
     files = list_files_in_current_path('.')
     image = fits.open(files[0])
     cube = np.ndarray(shape=(len(files), image[0].data.shape[0], image[0].data.shape[1]), dtype=float)
     i = 0
     for fname in files:
-        c = fits.open(fname)
-        cube[i] = c[0].data
+        image = fits.open(fname)
+        cube[i] = image[0].data
         i += 1
 
     header = pyfits.getheader(files[0])
