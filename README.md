@@ -1,6 +1,7 @@
-# Notes and related files from Code Review sessions held at the Centre for Astrophysics and Supercomputing, Swinburne University of Technology
+# Code Review misc material
+# Centre for Astrophysics & Supercomputing, Swinburne University of Technology
 
-## Linux practical commands (shell script type)
+## Useful linux commands
 
 **man** <command> : display linux command manual
 
@@ -42,6 +43,6 @@
 
 **wc** : word, line, character, and byte count
 
-## Questions?
+## Questions/Comments?
 
-[Drop me a line](http://macrocosme.github.io/#contact) here!
+[Drop me a line](http://macrocosme.github.io/#contact)!
