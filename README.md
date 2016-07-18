@@ -43,6 +43,28 @@
 
 **wc** : word, line, character, and byte count
 
+## Tools / Packages
+
+[GitHub Desktop for mac](https://desktop.github.com): User interface to keep track of your git repo and sync to github.
+
+[Git online turorial](https://try.github.io/levels/1/challenges/1)
+
+[Astropy](http://www.astropy.org) : [documentation](http://docs.astropy.org/en/stable/)
+
+[Pandas](http://pandas.pydata.org) : [documentation](http://pandas.pydata.org/pandas-docs/stable/)
+
+[Pynbody](https://github.com/pynbody/pynbody) : [documentation](https://pynbody.github.io/pynbody/)
+
+[S2PLOT](https://github.com/mivp/s2plot) : [documentation](http://astronomy.swin.edu.au/s2plot/index.php?title=S2PLOT)
+
+[gbkfit](https://github.com/bek0s/gbkfit/)
+
+... 
+
+## Other
+
+[CAS Projects Showcase](http://supercomputing.swin.edu.au/projects/)
+
 ## Questions/Comments?
 
 [Drop me a line](http://macrocosme.github.io/#contact)!
