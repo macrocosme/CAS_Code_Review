@@ -3,15 +3,15 @@
 
 ## Useful linux commands
 
-**man** <command> : display linux command manual
-
-**cut** : cut input into chuncks 
+**man** <command> : display linux command manual 
 
 **for** : for loop 
 
 **while** : while loop
 
 **do**, **done**: e.g. action block for "for" or "while"
+
+**cut** : cut input into chunks
 
 **sed** : (stream editor) utility that parses and transforms text 
 
