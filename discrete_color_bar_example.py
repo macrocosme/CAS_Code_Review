@@ -4,6 +4,11 @@ import numpy as np
 %config InlineBackend.figure_format='retina'
 %matplotlib inline
 
+"""
+Log scale discrete colormaps with matplotlib which you can happily copy-paste in jupyter notebook
+(inspired by http://stackoverflow.com/questions/14777066/matplotlib-discrete-colorbar)
+"""
+
 x = [  6.23343507e-03,   2.81348181e-02,   4.68303411e-03,   3.42539566e-01,   3.45920197e-03,   2.90532859e-04,   3.08496503e-05,   2.63339694e-03,   2.63879760e-07]
 y = [ 0.80633933,  0.40211565,  0.68903025,  0.4414968,   0.45019223,  0.35095171,  0.37928863,  0.2779556,   0.27843539]
 z = [ 4.25201185,  4.11153144,  4.23549925,  4.0512849,   4.05836118,  4.01689744,  4.02224028,  3.96961677,  3.96906273]
