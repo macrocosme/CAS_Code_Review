@@ -1,5 +1,5 @@
 from socket import gethostname
-from popen2 import popen2
+import subprocess
 from lxml import etree
 
 VALID_HOSTS = ["g2.hpc.swin.edu.au"]
@@ -77,13 +77,29 @@ class QueueParser(object):
             output[info["QOS"]].append(info)
         return output
 
+    @property
+    def active(self):
+        self.update()
+        return self._set_by_queue(self.xml[self.__ACTIVE_ID])
+
+    @property
+    def eligible(self):
+        self.update()
+        return self._set_by_queue(self.xml[self.__ELIGIBLE_ID])
+
+    @property
+    def blocked(self):
+        self.update()
+        return self._set_by_queue(self.xml[self.__BLOCKED_ID])
+
     def update(self):
-        o,i = popen2("showq -v -n -w user=%s --format=xml"%(self.user))
-        self.qstring = o.read().strip()
-        self.xml = etree.fromstring(self.qstring)
-        self.active   = self._set_by_queue(self.xml[self.__ACTIVE_ID])
-        self.eligible = self._set_by_queue(self.xml[self.__ELIGIBLE_ID])
-        self.blocked  = self._set_by_queue(self.xml[self.__BLOCKED_ID])
+        o = subprocess.Popen(["showq", "-v", "-n", "--format=xml", "-w", "user=%s" %(self.user)], stdout=subprocess.PIPE).communicate()[0]
+        self.qstring = o.strip()
+        try:
+            self.xml = etree.fromstring(self.qstring)
+        except etree.XMLSyntaxError:
+            print(o)
+            exit(1)
 
 if __name__ == "__main__":
     import sys
